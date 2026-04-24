@@ -38,7 +38,47 @@ const Footer = () => {
         </div>
 
         <div className="pt-10 border-t border-gray-100 flex flex-col md:flex-row justify-between items-center gap-6 text-textMuted text-[10px] font-black uppercase tracking-[0.3em]">
-          <p>&copy; 2026 INFINITIUM CREATIVE AGENCY. ALL RIGHTS RESERVED.</p>
+          <div className="flex flex-col md:flex-row items-center gap-4">
+            <p>&copy; 2026 INFINITIUM CREATIVE AGENCY. ALL RIGHTS RESERVED.</p>
+            
+            {/* Credit Section */}
+            <div className="inline-flex items-center gap-1.5 rounded-md px-2 py-1 border border-gray-100 bg-gray-50 shadow-sm hover:shadow-md hover:bg-white transition-all duration-300 ml-0 md:ml-4">
+              <a
+                href="https://fabulousmedia.in"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="rounded p-0.5 opacity-90 hover:opacity-100 transition-opacity flex items-center justify-center hover:scale-110 transition-transform"
+                aria-label="FabulousMedia"
+              >
+                <img
+                  src="https://play.fabulousmedia.in/sitecredit/images/fabulousmedia.svg"
+                  alt="FabulousMedia"
+                  className="h-3 w-auto"
+                  loading="lazy"
+                  width="80"
+                  height="12"
+                />
+              </a>
+              <div className="h-3 w-px bg-gray-200 transition-colors duration-300"></div>
+              <a
+                href="https://gocommercially.com"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="rounded p-0.5 opacity-90 hover:opacity-100 transition-opacity flex items-center justify-center hover:scale-110 transition-transform"
+                aria-label="GoCommercially"
+              >
+                <img
+                  src="https://play.fabulousmedia.in/sitecredit/images/gocommercially.svg"
+                  alt="GoCommercially"
+                  className="h-3 w-auto"
+                  loading="lazy"
+                  width="80"
+                  height="12"
+                />
+              </a>
+            </div>
+          </div>
+          
           <div className="flex gap-10">
             <a href="#" className="hover:text-textDark transition-colors">Privacy Policy</a>
             <a href="#" className="hover:text-textDark transition-colors">Terms of Service</a>

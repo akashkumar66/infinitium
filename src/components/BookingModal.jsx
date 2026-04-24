@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { X, CheckCircle } from 'lucide-react';
 
@@ -18,6 +18,19 @@ const BookingModal = ({ isOpen, onClose }) => {
       setIsSubmitted(true);
     }, 500);
   };
+
+  // Auto-dismiss success message
+  useEffect(() => {
+    let timeout;
+    if (isSubmitted && isOpen) {
+      timeout = setTimeout(() => {
+        onClose();
+        // Reset form after closing
+        setTimeout(() => setIsSubmitted(false), 500);
+      }, 3000);
+    }
+    return () => clearTimeout(timeout);
+  }, [isSubmitted, isOpen, onClose]);
 
   if (!isOpen) return null;
 
@@ -104,12 +117,9 @@ const BookingModal = ({ isOpen, onClose }) => {
                 <p className="text-sm text-textMuted font-medium mb-8 max-w-xs mx-auto">
                   Thank you, {formData.name}. Our expert will reach out to {formData.email} within 24 hours.
                 </p>
-                <button 
-                  onClick={onClose}
-                  className="bg-darkBg text-white px-8 py-3.5 rounded-full font-black uppercase tracking-widest text-xs hover:scale-105 transition-transform shadow-lg"
-                >
-                  Close
-                </button>
+                <div className="text-[10px] text-textMuted font-bold uppercase tracking-widest animate-pulse">
+                  Closing in 3 seconds...
+                </div>
               </div>
             )}
           </div>
